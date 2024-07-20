@@ -1,0 +1,64 @@
+<main>
+  <section>
+    <div class="container-fluid my-5 ">
+      <form class="form-style">
+      <div class="row ">
+      
+        <div class="col-6 mb-3">
+          <label for="cars">Choose ID:</label>
+          {{selectedValue}}
+          <select name="cars" id="cars" class="form-select"
+          [(ngModel)]="selectedValue"
+          (change)="changeData($event)">
+            <option value="" selected disabled>select id </option>
+            <option *ngFor="let id of idList" [value]="id">{{id}}</option>
+            
+          </select>
+        </div>
+
+        <div class="col-6 mb-3">
+          <label for="cars">Enter Your Name:</label>
+          <input type="text"   [(ngModel)]="nameValue" id="fname" name="fname"  class="form-control" />
+        </div>
+        <div class="col-6 mb-3">
+            <label for="cars">Enter Your Email:</label>
+            <input type="text"   [(ngModel)]="emailValue" id="email" name="email" class="form-control" />
+          </div>
+          <div class="col-6 mb-3">
+            <label for="cars">Enter Your Phone Number:</label>
+            <input type="text" [(ngModel)]="phoneNumberValue" id="phone" name="phone" class="form-control" />
+          </div>
+        <div class="col-12 d-flex align-items-center justify-content-center mt-4">
+        <button class="btn btn-primary btn-style" (click)="save()">Add</button>
+
+        </div>
+        </div>
+        </form>
+        <div class="row">
+        <div class="col-12 my-5">
+          <div class="d-flex justify-content-center align-item-center">
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of myData">
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.nameValue}}</td>
+                <td>{{item.emailValue}}</td>
+                <td>{{item.phoneNumberValue}}</td>
+              </tr>
+           
+            </tbody>
+          </table>
+        </div> 
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
